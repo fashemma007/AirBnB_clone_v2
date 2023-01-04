@@ -136,7 +136,10 @@ class HBNBCommand(cmd.Cmd):
             # split k,v pairs using =
             key, value = list(my_args[i].split("="))
             # store pairs in keywords dict
-            value = value.replace("'", "").replace("\"", "")
+            value = (value.replace("'", "")
+                     .replace("\"", "")
+                     .replace("_", " ")
+                     )
             # type casting to appropriate types
             if key in HBNBCommand.types:
                 value = HBNBCommand.types[key](value)
