@@ -1,62 +1,11 @@
 {
-	"User.448cf943-7156-4d6f-a69d-b40d6f3ae751": {
-		"id": "448cf943-7156-4d6f-a69d-b40d6f3ae751",
-		"created_at": "2023-01-04T09:38:32.588283",
-		"updated_at": "2023-01-04T11:20:48.900881",
-		"__class__": "User"
-	},
-	"User.cb804a58-17b3-4d45-8a53-086126cb4539": {
-		"first_name": "Emmanuel",
-		"id": "cb804a58-17b3-4d45-8a53-086126cb4539",
-		"updated_at": "2023-01-04T11:20:48.901265",
-		"created_at": "2023-01-04T09:39:00.608670",
+	"User.7c2f091f-66ba-4c6b-b236-21f9df4a20dd": {
+		"id": "7c2f091f-66ba-4c6b-b236-21f9df4a20dd",
+		"created_at": "2023-01-04T13:21:58.866392",
+		"updated_at": "2023-01-04T13:21:58.866512",
+		"first_name": "Olaoluwa",
 		"last_name": "Fasogba",
-		"age": 27,
-		"__class__": "User"
-	},
-	"User.e9f3b863-6da9-486c-9162-24f3c9924d32": {
-		"id": "e9f3b863-6da9-486c-9162-24f3c9924d32",
-		"created_at": "2023-01-04T12:03:29.558574",
-		"updated_at": "2023-01-04T12:03:29.558712",
-		"first_name": "Emmy",
-		"last_name": "Fash",
-		"number_rooms": "27",
-		"__class__": "User"
-	},
-	"User.d0470e54-52c0-404d-9bf3-3b540d8b48d9": {
-		"id": "d0470e54-52c0-404d-9bf3-3b540d8b48d9",
-		"created_at": "2023-01-04T12:11:30.592492",
-		"updated_at": "2023-01-04T12:11:30.592741",
-		"first_name": "Emmy",
-		"last_name": "Fash",
-		"number_rooms": "27",
-		"__class__": "User"
-	},
-	"User.b69b3833-e055-4437-ba39-810c9de5e2c2": {
-		"id": "b69b3833-e055-4437-ba39-810c9de5e2c2",
-		"created_at": "2023-01-04T12:12:02.245942",
-		"updated_at": "2023-01-04T12:12:02.245974",
-		"first_name": "Emmy",
-		"last_name": "Fash",
-		"number_rooms": "27",
-		"__class__": "User"
-	},
-	"User.c1ad3eb3-ad2c-4556-bea2-415924b84ce5": {
-		"id": "c1ad3eb3-ad2c-4556-bea2-415924b84ce5",
-		"created_at": "2023-01-04T12:13:18.193936",
-		"updated_at": "2023-01-04T12:13:18.194041",
-		"first_name": "Emmy",
-		"last_name": "Fash",
-		"number_rooms": 27,
-		"__class__": "User"
-	},
-	"User.b9e0855e-c5bf-428e-b384-c89237709237": {
-		"id": "b9e0855e-c5bf-428e-b384-c89237709237",
-		"created_at": "2023-01-04T13:00:48.559816",
-		"updated_at": "2023-01-04T13:00:48.559898",
-		"first_name": "Emmy",
-		"last_name": "Fash",
-		"longitude": 2.078457,
+		"age": "23",
 		"__class__": "User"
 	}
 }
