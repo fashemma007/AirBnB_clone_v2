@@ -132,7 +132,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         # loop thru the argumemnts
-        for i in range (1, len(my_args)):
+        for i in range(1, len(my_args)):
             # split k,v pairs using =
             key, value = list(my_args[i].split("="))
             # store pairs in keywords dict
