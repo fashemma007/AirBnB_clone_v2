@@ -11,27 +11,25 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if cls is None:
-            return FileStorage.__objects
-        else:
-            cls_dict = {}  # create empty dict to store classes
-            for key,value in FileStorage.__objects.items():
-                # print(cls)
-                # ==> if item class in __object matches cls
-                if type(value) is cls:
-                    # print(FileStorage.__objects[key])
-                    # ==> save to cls_dict
-                    cls_dict[key] = value
-            return cls_dict
+            return self.__objects
+        cls_name = cls.__name__
+        dct = {}
+        for key in self.__objects.keys():
+            if key.split('.')[0] == cls_name:
+                dct[key] = self.__objects[key]
+        return dct
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
-        self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
+        self.__objects.update(
+            {obj.to_dict()['__class__'] + '.' + obj.id: obj}
+            )
 
     def save(self):
         """Saves storage dictionary to file"""
-        with open(FileStorage.__file_path, 'w') as f:
+        with open(self.__file_path, 'w') as f:
             temp = {}
-            temp.update(FileStorage.__objects)
+            temp.update(self.__objects)
             for key, val in temp.items():
                 temp[key] = val.to_dict()
             json.dump(temp, f)
@@ -53,7 +51,7 @@ class FileStorage:
                   }
         try:
             temp = {}
-            with open(FileStorage.__file_path, 'r') as f:
+            with open(self.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
                     self.all()[key] = classes[val['__class__']](**val)
@@ -61,15 +59,15 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """Deletes a given object from __objects if it exists"""
-        try:  # ==> use try block to avoid errors
-            # ==> create object key using class_name and objet id
-            obj_key = f"{type(obj).__name__}.{obj.id}"
-            # print(obj_key)
-            # print(self.__objects)
-            # ==> delete instance from __objects dict passing the object key
+        ''' deletes the object obj from the attribute
+            __objects if it's inside it
+        '''
+        if obj is None:
+            return
+        obj_key = obj.to_dict()['__class__'] + '.' + obj.id
+        if obj_key in self.__objects.keys():
             del self.__objects[obj_key]
-            # ==> save the updated __object
-            FileStorage.save()
-        except Exception:
-            pass
+
+    def close(self):
+        """Call the reload method"""
+        self.reload()

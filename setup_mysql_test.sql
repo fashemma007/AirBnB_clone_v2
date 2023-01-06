@@ -13,6 +13,7 @@ GRANT USAGE ON *.* TO 'hbnb_test'@'localhost';
 GRANT SELECT 
 	ON `performance_schema`.* 
 	TO 'hbnb_test'@'localhost';
+FLUSH PRIVILEGES;
 -- hbnb_test should have all privileges on the database hbnb_test_db (and only this database)
 GRANT ALL PRIVILEGES 
 	ON `hbnb_test_db`.* 
