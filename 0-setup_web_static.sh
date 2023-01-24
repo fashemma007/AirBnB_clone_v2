@@ -24,6 +24,6 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -hR ubuntu:ubuntu /data/
 
 # Update the Nginx configuration to serve the content of /data/web_static/current/ to hbnb_static (ex: https://mydomainname.tech/hbnb_static). Don’t forget to restart Nginx after updating the configuration: Use alias inside your Nginx configuration
-sed -i "/server_name .*/a\ \n\n\tlocation localhost/hbnb_static {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
+sudo sed -i "/server_name .*/a\ \n\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
 
 sudo service nginx restart
