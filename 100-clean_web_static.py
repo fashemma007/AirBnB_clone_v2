@@ -11,8 +11,7 @@ env.user = 'ubuntu'
 env.key_filename = "~/.ssh/school"
 
 def do_clean(number=0):
-    """delete out-of-date archives
-    """
+    """deletes out-of-date archives"""
     number = 1 if int(number) == 0 else int(number)
     # Delete all unnecessary archives
     # (all archives minus the number to keep) in the versions folder
