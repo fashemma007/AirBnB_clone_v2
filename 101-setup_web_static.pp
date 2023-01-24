@@ -4,7 +4,7 @@
 $nginx_conf = "server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    add_header X-Served-By ${hostname -a};
+    add_header X-Served-By ${hostname};
     root   /var/www/html;
     index  index.html index.htm;
     location /hbnb_static {
@@ -59,14 +59,14 @@ file { '/data/web_static/shared':
 file { '/data/web_static/releases/test/index.html':
   ensure  => 'present',
   owner   => "ubuntu",
-  group   => "ubuntu"
+  group   => "ubuntu",
   content => "Holberton School\n"
 }
 
 file { '/data/web_static/current':
   ensure => 'link',
   owner  => "ubuntu",
-  group  => "ubuntu"
+  group  => "ubuntu",
   target => '/data/web_static/releases/test'
 }
 
