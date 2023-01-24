@@ -1,41 +1,28 @@
 #!/usr/bin/python3
-"""Fabric script that distributes an archive to your web servers"""
-from fabric.api import env
-from fabric.api import run
-from fabric.api import put
-from os.path import exists
+"""web server distribution"""
+from fabric.api import *
+import os.path
 
 env.hosts = ['54.89.25.106', '52.3.241.66']
 env.user = 'ubuntu'
 env.key_filename = "~/.ssh/id_rsa"
 
 def do_deploy(archive_path):
+    """distributes an archive to your web servers
     """
-    Deploys static content to server
-    Return
-    --
-    * archive_path
-    * False : if archive_path doesn't exist
-    """
-
-    if exists(archive_path) is False:
+    if os.path.exists(archive_path) is False:
         return False
     try:
-        name = archive_path.split("/")[-1]
-        folder = name.split(".")[0]
-        path = "/data/web_static/releases/"
-        # Upload the archive to the /tmp/ directory of the web server
+        arc = archive_path.split("/")
+        base = arc[1].strip('.tgz')
         put(archive_path, '/tmp/')
-        # extract contents
-        run(f"tar -xzf /tmp/{name} -C {path}")
-        # rename extracted folder to version's name
-        run(f"mv {path}web_static {path}{folder}")
-        # Delete the archive from the web server
-        run(f"rm -rf /tmp/{name}")
-        # Delete the sym-link /data/web_static/current from the web server
-        run('rm -rf /data/web_static/current')
-        # update symbolic link to point to the new version
-        run(f"sudo ln -sf {path}{folder} /data/web_static/current")
+        sudo('mkdir -p /data/web_static/releases/{}'.format(base))
+        main = "/data/web_static/releases/{}".format(base)
+        sudo('tar -xzf /tmp/{} -C {}/'.format(arc[1], main))
+        sudo('rm /tmp/{}'.format(arc[1]))
+        sudo('mv {}/web_static/* {}/'.format(main, main))
+        sudo('rm -rf /data/web_static/current')
+        sudo('ln -s {}/ "/data/web_static/current"'.format(main))
         return True
-    except Exception:
+    except:
         return False
