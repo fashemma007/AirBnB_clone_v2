@@ -27,32 +27,46 @@ package { 'nginx':
 }
 
 file { '/data':
-  ensure  => 'directory'
+  ensure => 'directory',
+  owner  => "ubuntu",
+  group  => "ubuntu"
 }
 
 file { '/data/web_static':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner  => "ubuntu",
+  group  => "ubuntu"
 }
 
 file { '/data/web_static/releases':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner  => "ubuntu",
+  group  => "ubuntu"
 }
 
 file { '/data/web_static/releases/test':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner  => "ubuntu",
+  group  => "ubuntu"
 }
 
 file { '/data/web_static/shared':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner  => "ubuntu",
+  group  => "ubuntu"
 }
 
 file { '/data/web_static/releases/test/index.html':
   ensure  => 'present',
+  owner   => "ubuntu",
+  group   => "ubuntu"
   content => "Holberton School\n"
 }
 
 file { '/data/web_static/current':
   ensure => 'link',
+  owner  => "ubuntu",
+  group  => "ubuntu"
   target => '/data/web_static/releases/test'
 }
 
