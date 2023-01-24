@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Fabric script that compartmentalizes web servers deployments"""
+"""Fabric web servers deployments"""
 import os
 from fabric.api import local
 from fabric.api import env
@@ -12,7 +12,7 @@ env.key_filename = "~/.ssh/school"
 
 
 def do_clean(number=0):
-    """deletes out-of-date archives"""
+    '''deletes out-of-date archives'''
     number = 1 if int(number) == 0 else int(number)
     archives = sorted(os.listdir("versions"))
     [archives.pop() for i in range(number)]
