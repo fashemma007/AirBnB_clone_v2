@@ -14,7 +14,8 @@ env.key_filename = "~/.ssh/school"
 
 
 def do_pack():
-    """generates a tgz archive"""
+    """ Generates a tgz archive """
+
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     try:
         if isdir("versions") is False:
@@ -34,6 +35,7 @@ def do_deploy(archive_path):
     * archive_path
     * False : if archive_path doesn't exist
     """
+
     if exists(archive_path) is False:
         return False
     try:

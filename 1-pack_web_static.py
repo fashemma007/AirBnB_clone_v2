@@ -11,6 +11,7 @@ from os.path import isdir
 
 def do_pack():
     """generates a tgz archive"""
+
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     try:
         if isdir("versions") is False:

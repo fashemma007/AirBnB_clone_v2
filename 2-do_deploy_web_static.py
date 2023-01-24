@@ -17,6 +17,7 @@ def do_deploy(archive_path):
     * archive_path
     * False : if archive_path doesn't exist
     """
+
     if exists(archive_path) is False:
         return False
     try:
