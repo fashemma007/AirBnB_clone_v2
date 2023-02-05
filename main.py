@@ -7,7 +7,7 @@ from models.state import State
 from models.city import City
 
 """
-Objects creations
+ Objects creations
 """
 state_1 = State(name="California")
 print("New state: {}".format(state_1))
@@ -28,10 +28,11 @@ city_2_1.save()
 
 
 """
-Verification
+ Verification
 """
 print("")
 all_states = storage.all(State)
+# print(all_states)
 for state_id, state in all_states.items():
     for city in state.cities:
-        print("Find the city {} in the state {}".format(city, state))
+        print("Find the city {} in the state {}\n".format(city, state))

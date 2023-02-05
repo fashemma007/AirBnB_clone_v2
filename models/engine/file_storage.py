@@ -65,10 +65,15 @@ class FileStorage:
         """
         try:
             with open(self.__file_path, 'r', encoding="UTF-8") as f:
+                # abc = f.read()
+                # print(f"****Objects****\n{abc}")
                 for key, value in (json.load(f)).items():
+                    # print(key, "\n", value)
                     value = eval(value["__class__"])(**value)
                     self.__objects[key] = value
         except FileNotFoundError:
+            pass
+        except Exception:
             pass
 
     def delete(self, obj=None):

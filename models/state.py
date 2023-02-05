@@ -16,8 +16,8 @@ class State(BaseModel, Base):
         __tablename__: name of MySQL table
         name: input name
     """
+    __tablename__ = 'states'
     if engines == "db":
-        __tablename__ = 'states'
         name = Column(String(128), nullable=False)
         cities = relationship('City', cascade='all, delete', backref='state')
 
@@ -29,13 +29,15 @@ class State(BaseModel, Base):
             """Getter method for cities
             Return: list of cities with state_id equal to self.id
             """
-            # return list of City objs in __objects
-            cities_dict = models.storage.all(City).values()
+            # get all cities in storage
+            cities_dict = models.storage.all(City)
+            # initialize an empty list to store city in
             cities_list = []
+            # print(self.id)
             # append city from dict values to list
             [
-                cities_list.append(city)
-                for city in cities_dict.keys()
-                if city == self.id
+                cities_list.append(valz)
+                for keys, valz in cities_dict.items()
+                if valz.state_id == self.id
             ]
             return cities_list
