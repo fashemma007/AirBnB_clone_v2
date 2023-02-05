@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+"""Definition of a Flask web application"""
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    """
+    The hello_world function returns the string 'Hello HBNB!'
+    
+    :return: The string &quot;hello hbnb!&quot;
+    """
+    return "Hello HBNB!"
+
+if __name__ == "__main__":
+    app.run(port=5000)
