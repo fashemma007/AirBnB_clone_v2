@@ -19,6 +19,7 @@
 	- [2. C is fun!](2-c_route.py)
 	- [3. Python is cool!](3-python_route.py)
 	- [4. Is it a number?](4-number_route.py)
+	- [5. Number template](5-number_template.py)
 	- [Task_1](link_to_file)
 - [**Advanced Task**](#advanced-task)
 	- [Task_013](link_to_file)
@@ -172,9 +173,45 @@ imitor＠excalibur:~$ curl 0.0.0.0:5000/number/emiwest
 
 ---
 
+#### 5. Number template
+**Problem:** Write a script that starts a Flask web application:
+
+**Requirements:**
+* Your web application must be listening on `0.0.0.0`, port `5000`
+* Routes:
+	* `/`: display “Hello HBNB!”
+	* `/hbnb`: display “HBNB”
+	* `/c/<text>`: display “C ” followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+	* `/python/(<text>)`: display “Python ”, followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+		* The default value of `text` is “is cool”
+	* `/number/<n>`: display “n is a number” only if `n` is an integer
+	* `/number_template/<n>`: display a HTML page only if n is an integer:
+		* `H1` tag: “Number: n” inside the tag `BODY`
+* You must use the option `strict_slashes=False` in your route definition
+```
+AirBnB_clone_v2(master)➜ python3 -m web_flask.4-number_route.py
+ * Serving Flask app '4-number_route.py'
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+curl 0.0.0.0:5000/number_template/101 ; echo ""
+<!DOCTYPE html>
+<HTML lang="en">
+	<HEAD>
+		<TITLE>HBNB</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Number: 101</H1>
+	</BODY>
+</HTML>
+
+```
+- [x] *File:* [5-number_template.py](5-number_template.py), [5-number.html](templates/5-number.html)
+
+---
+
 ### Advanced Task
 
 ---
+
 #### Task_013
 **Problem:** lorem_ipsum
 
