@@ -17,8 +17,8 @@
 	- [0. Hello Flask!](0-hello_route.py)
 	- [1. HBNB](1-hbnb_route.py)
 	- [2. C is fun!](2-c_route.py)
-	- [Task_1](link_to_file)
-	- [Task_1](link_to_file)
+	- [3. Python is cool!](3-python_route.py)
+	- [4. Is it a number?](4-number_route.py)
 	- [Task_1](link_to_file)
 - [**Advanced Task**](#advanced-task)
 	- [Task_013](link_to_file)
@@ -103,17 +103,58 @@ C is fun$
 
 ---
 
-#### Task_013
-**Problem:** lorem_ipsum
+#### 3. Python is cool!
+**Problem:** Write a script that starts a Flask web application:
 
 **Requirements:**
-* lorem_ipsum
-* lorem_ipsum
+* Your web application must be listening on `0.0.0.0`, port `5000`
+* Routes:
+	* `/`: display “Hello HBNB!”
+	* `/hbnb`: display “HBNB”
+	* `/c/<text>`: display “C ” followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+	* `/python/(<text>)`: display “Python ”, followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+		* The default value of `text` is “is cool”
+* You must use the option `strict_slashes=False` in your route definition
+```
+AirBnB_clone_v2(master)➜ python3 -m web_flask.3-python_route
+ * Serving Flask app '3-python_route'
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 
+-------------------------------- Terminal 2 --------------------------------
+imitor＠excalibur:~$ curl -Ls 0.0.0.0:5000/python/is_magic ; echo "" | cat -e
+Python is magic$
+imitor＠excalibur:~$ curl -Ls 0.0.0.0:5000/python/ ; echo "" | cat -e 
+Python is cool$
+imitor＠excalibur:~$ curl -Ls 0.0.0.0:5000/python ; echo "" | cat -e 
+Python is cool$
 ```
-code sample
+- [x] *File:* [3-python_route](3-python_route)
+
+---
+
+#### 4. Is it a number?
+**Problem:** Write a script that starts a Flask web application:
+
+**Requirements:**
+* Your web application must be listening on `0.0.0.0`, port `5000`
+* Routes:
+	* `/`: display “Hello HBNB!”
+	* `/hbnb`: display “HBNB”
+	* `/c/<text>`: display “C ” followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+	* `/python/(<text>)`: display “Python ”, followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+		* The default value of `text` is “is cool”
+	* `/number/<n>`: display “n is a number” only if `n` is an integer
+* You must use the option `strict_slashes=False` in your route definition
 ```
-- [ ] *File:* [Task_13](link_to_file)
+AirBnB_clone_v2(master)➜ python3 -m web_flask.4-number_route.py
+ * Serving Flask app '4-number_route.py'
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+
+-------------------------------- Terminal 2 --------------------------------
+imitor＠excalibur:~$ 
+imitor＠excalibur:~$ 
+```
+- [ ] *File:* [4-number_route.py](4-number_route.py)
 
 ---
 
