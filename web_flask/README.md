@@ -21,6 +21,8 @@
 	- [4. Is it a number?](4-number_route.py)
 	- [5. Number template](5-number_template.py)
 	- [6. Odd or even?](6-number_odd_or_even.py)
+	- [7. Improve engines](models/engine/)
+	- [Task_1](link_to_file)
 	- [Task_1](link_to_file)
 - [**Advanced Task**](#advanced-task)
 	- [Task_013](link_to_file)
@@ -256,6 +258,25 @@ imitor＠excalibur»~➜ curl 0.0.0.0:5000/number_odd_or_even/aa ; echo ""
 
 ```
 - [x] *File:* [6-number_odd_or_even.py](6-number_odd_or_even.py), [6-number_odd_or_even.html](templates/6-number_odd_or_even.html)
+
+---
+
+#### 7. Improve engines
+**Problem:** Before using Flask to display our HBNB data, you will need to update some part of our engine:
+
+**Requirements:**
+Update `FileStorage`: (`models/engine/file_storage.py`)
+* Add a public method `def close(self):`: call `reload()` method for deserializing the JSON file to objects
+
+Update `DBStorage`: (`models/engine/db_storage.py`)
+* Add a public method `def close(self):`: call `remove()` method on the private session attribute (`self.__session`) tips or `close()` on the class `Session` tips
+
+Update `State`: (`models/state.py`) - If it’s not already present
+* If your storage engine is not `DBStorage`, add a public getter method `cities` to return the list of `City` objects from `storage` linked to the current `State`
+```
+code sample
+```
+- [x] *File:* [file_storage.py](../models/engine/file_storage.py), [db_storage.py](../models/engine/db_storage.py), [state.py](../models/state.py)
 
 ---
 
