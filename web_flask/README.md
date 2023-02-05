@@ -20,6 +20,7 @@
 	- [3. Python is cool!](3-python_route.py)
 	- [4. Is it a number?](4-number_route.py)
 	- [5. Number template](5-number_template.py)
+	- [6. Odd or even?](6-number_odd_or_even.py)
 	- [Task_1](link_to_file)
 - [**Advanced Task**](#advanced-task)
 	- [Task_013](link_to_file)
@@ -189,8 +190,8 @@ imitor＠excalibur:~$ curl 0.0.0.0:5000/number/emiwest
 		* `H1` tag: “Number: n” inside the tag `BODY`
 * You must use the option `strict_slashes=False` in your route definition
 ```
-AirBnB_clone_v2(master)➜ python3 -m web_flask.4-number_route.py
- * Serving Flask app '4-number_route.py'
+AirBnB_clone_v2(master)➜ python3 -m web_flask.5-number_template.py
+ * Serving Flask app '5-number_template.py'
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 curl 0.0.0.0:5000/number_template/101 ; echo ""
 <!DOCTYPE html>
@@ -205,6 +206,29 @@ curl 0.0.0.0:5000/number_template/101 ; echo ""
 
 ```
 - [x] *File:* [5-number_template.py](5-number_template.py), [5-number.html](templates/5-number.html)
+
+---
+
+#### 6. Odd or even?
+**Problem:** Write a script that starts a Flask web application:
+
+**Requirements:**
+* Your web application must be listening on `0.0.0.0`, port `5000`
+* Routes:
+	* `/`: display “Hello HBNB!”
+	* `/hbnb`: display “HBNB”
+	* `/c/<text>`: display “C ” followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+	* `/python/(<text>)`: display “Python ”, followed by the value of the `text` variable (replace underscore `_` symbols with a space ` `)
+		* The default value of `text` is “is cool”
+	* `/number/<n>`: display “n is a number” only if `n` is an integer
+	* `/number_template/<n>`: display a HTML page only if n is an integer:
+		* `H1` tag: “Number: n” inside the tag `BODY`
+	* `/number_odd_or_even/<n>`: display a HTML page only if `n` is an integer:
+		* H1 tag: “Number: `n` is `even|odd`” inside the tag `BODY`
+* You must use the option `strict_slashes=False` in your route definition
+```
+```
+- [ ] *File:* [6-number_odd_or_even.py](6-number_odd_or_even.py), [6-number_odd_or_even.html](templates/6-number_odd_or_even.html)
 
 ---
 
