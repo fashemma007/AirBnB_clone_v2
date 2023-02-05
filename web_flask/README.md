@@ -151,10 +151,24 @@ AirBnB_clone_v2(master)➜ python3 -m web_flask.4-number_route.py
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 
 -------------------------------- Terminal 2 --------------------------------
-imitor＠excalibur:~$ 
-imitor＠excalibur:~$ 
+imitor＠excalibur:~$ curl 0.0.0.0:5000/number/89 ; echo "" | cat -e
+89 is a number$
+
+imitor＠excalibur:~$ curl 0.0.0.0:5000/number/8.9
+<!doctype html>
+<html lang=en>
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+
+imitor＠excalibur:~$ curl 0.0.0.0:5000/number/emiwest
+<!doctype html>
+<html lang=en>
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
 ```
-- [ ] *File:* [4-number_route.py](4-number_route.py)
+- [x] *File:* [4-number_route.py](4-number_route.py)
 
 ---
 
