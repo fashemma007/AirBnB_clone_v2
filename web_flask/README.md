@@ -227,8 +227,35 @@ curl 0.0.0.0:5000/number_template/101 ; echo ""
 		* H1 tag: “Number: `n` is `even|odd`” inside the tag `BODY`
 * You must use the option `strict_slashes=False` in your route definition
 ```
+imitor＠excalibur»~➜ curl 0.0.0.0:5000/number_odd_or_even/88 ; echo ""
+<!DOCTYPE html>
+<HTML lang="en">
+	<HEAD>
+		<TITLE>HBNB</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Number: 88 is even</H1>
+	</BODY>
+</HTML>
+imitor＠excalibur»~➜ curl 0.0.0.0:5000/number_odd_or_even/188 ; echo ""
+<!DOCTYPE html>
+<HTML lang="en">
+	<HEAD>
+		<TITLE>HBNB</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>Number: 188 is even</H1>
+	</BODY>
+</HTML>
+imitor＠excalibur»~➜ curl 0.0.0.0:5000/number_odd_or_even/aa ; echo ""
+<!doctype html>
+<html lang=en>
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+
 ```
-- [ ] *File:* [6-number_odd_or_even.py](6-number_odd_or_even.py), [6-number_odd_or_even.html](templates/6-number_odd_or_even.html)
+- [x] *File:* [6-number_odd_or_even.py](6-number_odd_or_even.py), [6-number_odd_or_even.html](templates/6-number_odd_or_even.html)
 
 ---
 
