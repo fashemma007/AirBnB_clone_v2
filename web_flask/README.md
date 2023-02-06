@@ -294,10 +294,29 @@ Update `State`: (`models/state.py`) - If it’s not already present
 * Import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql) to have some data
 * You must use the option `strict_slashes=False` in your route definition
 
-```
-code sample
-```
-- [ ] *File:* [7-states_list.py](7-states_list.py)
+- [x] *File:* [7-states_list.py](7-states_list.py)
+
+---
+
+#### 9. Cities by states
+**Problem:** Write a script that starts a Flask web application:
+
+**Requirements:**
+* Your web application must be listening on `0.0.0.0`, port `5000`
+* You must use `storage` for fetching data from the storage engine (`FileStorage` or `DBStorage`) => `from models import storage` and `storage.all(...)`
+* After each request you must remove the current SQLAlchemy Session:
+	* Declare a method to handle `@app.teardown_appcontext`
+	* Call in this method `storage.close()`
+* Routes:
+* `/states_list`: display a HTML page: (inside the tag `BODY`)
+	* `H1` tag: “States”
+	* `UL` tag: with the list of all State objects present in `DBStorage` sorted by `name` (A->Z) [tip](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+		* `LI` tag: description of one `State`: `<state.id>: <B><state.name></B>` + `UL` tag: with the list of all State objects present in `DBStorage` sorted by `name` (A->Z) [tip](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+			* `LI` tag: description of one `City`: `<city.id>: <B><city.name></B>`
+* Import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql) to have some data
+* You must use the option `strict_slashes=False` in your route definition
+
+- [ ] *File:* [8-cities_by_states.py](web_flask/8-cities_by_states.py), [8-cities_by_states.html](web_flask/templates/8-cities_by_states.html)
 
 ---
 
