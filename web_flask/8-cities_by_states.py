@@ -7,18 +7,18 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.route("/states_list", strict_slashes=False)
-def state_list():
-    """get all state info from database"""
-    state_dict = (storage.all(State)).values()
-    return render_template("7-states_list.html", state_dict=state_dict)
-
-
 @app.teardown_appcontext
 def teardown_db(exception):
     """teardown_db closes connections to database"""
     if storage is not None:
         storage.close()
+
+
+@app.route("/states_list", strict_slashes=False)
+def state_list():
+    """get all state info from database"""
+    state_dict = (storage.all(State)).values()
+    return render_template("7-states_list.html", state_dict=state_dict)
 
 
 @app.route("/cities_by_states", strict_slashes=False)
