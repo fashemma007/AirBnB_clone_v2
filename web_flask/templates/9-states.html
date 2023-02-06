@@ -11,7 +11,7 @@
         <H1>State: {{ id_state.name }}</H1>
         <H3>Cities:</H3>
         <ul>
-        {#- Loop thru the states -#}
+        {#- Loop thru the cities -#}
         {% for city in id_state.cities|sort(attribute="name") %}
             <li>{{ city.id }}: <B>{{ city.name }}</B></li>
         {% endfor -%}

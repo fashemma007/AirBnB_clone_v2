@@ -345,7 +345,7 @@ Update `State`: (`models/state.py`) - If it’s not already present
 * Import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql) to have some data
 * You must use the option `strict_slashes=False` in your route definition
 
-- [ ] *File:* [9-states.py](web_flask/9-states.py), [9-states.html](web_flask/templates/9-states.html)
+- [x] *File:* [9-states.py](web_flask/9-states.py), [9-states.html](web_flask/templates/9-states.html)
 
 ---
 
