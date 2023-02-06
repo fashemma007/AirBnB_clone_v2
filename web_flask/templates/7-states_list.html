@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+        <UL>
+			{% comment %} Loop thru state_dict {% endcomment %}
+			{% for state in state_dict %}
+				{% comment %} Get id and names of each state {% endcomment %}
+				<LI>{{ state.id }}: <B>{{state.name}}</B></LI>
+			{% endfor %}
+        </UL>
+    </BODY>
+</HTML>

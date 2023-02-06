@@ -22,7 +22,7 @@
 	- [5. Number template](5-number_template.py)
 	- [6. Odd or even?](6-number_odd_or_even.py)
 	- [7. Improve engines](models/engine/)
-	- [Task_1](link_to_file)
+	- [8. List of states](7-states_list.py)
 	- [Task_1](link_to_file)
 - [**Advanced Task**](#advanced-task)
 	- [Task_013](link_to_file)
@@ -273,10 +273,31 @@ Update `DBStorage`: (`models/engine/db_storage.py`)
 
 Update `State`: (`models/state.py`) - If it’s not already present
 * If your storage engine is not `DBStorage`, add a public getter method `cities` to return the list of `City` objects from `storage` linked to the current `State`
+- [x] *File:* [file_storage.py](../models/engine/file_storage.py), [db_storage.py](../models/engine/db_storage.py), [state.py](../models/state.py)
+
+---
+
+#### 8. List of states
+**Problem:** Write a script that starts a Flask web application:
+
+**Requirements:**
+* Your web application must be listening on `0.0.0.0`, port `5000`
+* You must use `storage` for fetching data from the storage engine (`FileStorage` or `DBStorage`) => `from models import storage` and `storage.all(...)`
+* After each request you must remove the current SQLAlchemy Session:
+	* Declare a method to handle `@app.teardown_appcontext`
+	* Call in this method `storage.close()`
+* Routes:
+* `/states_list`: display a HTML page: (inside the tag `BODY`)
+	* `H1` tag: “States”
+	* `UL` tag: with the list of all State objects present in `DBStorage` sorted by `name` (A->Z) [tip](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+		* `LI` tag: description of one `State`: `<state.id>: <B><state.name></B>`
+* Import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql) to have some data
+* You must use the option `strict_slashes=False` in your route definition
+
 ```
 code sample
 ```
-- [x] *File:* [file_storage.py](../models/engine/file_storage.py), [db_storage.py](../models/engine/db_storage.py), [state.py](../models/state.py)
+- [ ] *File:* [7-states_list.py](7-states_list.py)
 
 ---
 
@@ -294,7 +315,7 @@ code sample
 ```
 code sample
 ```
-- [ ] *File:* [Task_13](link_to_file)
+- [ ] *File:* [Task_13](ddd)
 
 ---
 
