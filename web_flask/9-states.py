@@ -14,21 +14,22 @@ def teardown_db(exception):
         storage.close()
 
 
+# def state_list():
+#     """get all state info from database"""
+#     states = storage.all(State)
+#     return render_template("9-states.html", states=states)
+
+
 @app.route("/states", strict_slashes=False)
-def state_list():
-    """get all state info from database"""
-    states = storage.all(State)
-    return render_template("9-states.html", states=states)
-
-
 @app.route("/states/<id>", strict_slashes=False)
-def states_city(id):
+def states_city(id=None):
     """get all state info from database"""
     states = storage.all(State)
     for state in states.values():
-        if state.id == id:
+        if id and state.id == id:
             return render_template("9-states.html", id_state=state)
-    return render_template("9-states.html")
+    state = states.values()
+    return render_template("9-states.html", states=state)
 
 
 @app.route("/cities_by_states", strict_slashes=False)
